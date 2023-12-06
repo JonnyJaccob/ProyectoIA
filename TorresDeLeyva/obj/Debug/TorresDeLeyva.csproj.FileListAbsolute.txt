@@ -1,0 +1,10 @@
+C:\Users\jacco\OneDrive\Documentos\Repositorios\TorresJuego\TorresDeLeyva\bin\Debug\TorresDeLeyva.exe.config
+C:\Users\jacco\OneDrive\Documentos\Repositorios\TorresJuego\TorresDeLeyva\bin\Debug\TorresDeLeyva.exe
+C:\Users\jacco\OneDrive\Documentos\Repositorios\TorresJuego\TorresDeLeyva\bin\Debug\TorresDeLeyva.pdb
+C:\Users\jacco\OneDrive\Documentos\Repositorios\TorresJuego\TorresDeLeyva\obj\Debug\TorresDeLeyva.csproj.AssemblyReference.cache
+C:\Users\jacco\OneDrive\Documentos\Repositorios\TorresJuego\TorresDeLeyva\obj\Debug\TorresDeLeyva.Form1.resources
+C:\Users\jacco\OneDrive\Documentos\Repositorios\TorresJuego\TorresDeLeyva\obj\Debug\TorresDeLeyva.Properties.Resources.resources
+C:\Users\jacco\OneDrive\Documentos\Repositorios\TorresJuego\TorresDeLeyva\obj\Debug\TorresDeLeyva.csproj.GenerateResource.cache
+C:\Users\jacco\OneDrive\Documentos\Repositorios\TorresJuego\TorresDeLeyva\obj\Debug\TorresDeLeyva.csproj.CoreCompileInputs.cache
+C:\Users\jacco\OneDrive\Documentos\Repositorios\TorresJuego\TorresDeLeyva\obj\Debug\TorresDeLeyva.exe
+C:\Users\jacco\OneDrive\Documentos\Repositorios\TorresJuego\TorresDeLeyva\obj\Debug\TorresDeLeyva.pdb
