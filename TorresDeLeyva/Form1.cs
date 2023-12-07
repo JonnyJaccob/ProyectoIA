@@ -93,175 +93,55 @@ namespace TorresDeLeyva
                 {0, 0, 0, 0},
                 {0, 0, 0, 0}
             };
-            pilaBast0 = new Stack<int>();
-            pilaBast1 = new Stack<int>();
-            pilaBast2 = new Stack<int>();
-            pilaBast3 = new Stack<int>();
-            //setGrande(pnBast1Lv3, pnContenedorJg1);
-            //setMediano(pnBast1Lv2, pnContenedorJg1);
-            //setPeque(pnBast1Lv1, pnContenedorJg1);
-            var lista = new List<int> { 1, 2, 3, 1, 2, 3, 1, 2, 3 };
 
-            // Crear un objeto Random para utilizarlo en el desordenamiento
             Random random = new Random();
 
-            // Desordenar la lista utilizando el método Shuffle
-            var listaDesordenada = lista.OrderBy(x => random.Next()).ToList();
-            //Mensaje(string.Join(", ", listaDesordenada));
-            int[] numeros = { 1, 2, 3 };
-
-            // Iterar sobre las filas en grupos de 3
-            for (int fila = 0; fila < 9; fila += 3)
+            // Asegurar que haya al menos un 1, un 2 y un 3 por fila
+            for (int grupo = 0; grupo < 3; grupo++)
             {
+                // Obtener las filas correspondientes al grupo
+                int filaInicio = grupo * 3;
+                int filaFin = filaInicio + 2;
+
                 // Desordenar la lista de números específicos
+                int[] numeros = { 1, 2, 3 };
                 Shuffle(numeros, random);
 
                 // Asignar un número específico a cada fila en el grupo actual
                 for (int i = 0; i < 3; i++)
                 {
-                    matriz[fila + i, random.Next(columnas)] = numeros[i];
-                }
-            }
+                    // Desordenar la lista de columnas
+                    List<int> columnasDisponibles = Enumerable.Range(0, 4).ToList();
+                    Shuffle(columnasDisponibles, random);
 
-            int contV = 0,contR = 0,contA = 0;
-            /*
-            while (listaDesordenada.Count > 0)
-            {
-                int aleatorio = random.Next(1,5);
-                switch (aleatorio)
-                {
-                    case 1:
-                        if (pilaBast0.Count < 3)
-                        {
-                            int ultimoElemento = listaDesordenada.Last();
-                            listaDesordenada.RemoveAt(listaDesordenada.Count - 1);
-                            pilaBast0.Push(ultimoElemento);
-                            int fila;
-                            if(contV < 3)
-                            {
-                                fila = contV;
-                                contV++;
-                            }else if(contR < 3){
-                                fila = contR + 3;
-                                contR++;
-                            }
-                            else
-                            {
-                                fila = contA + 6;
-                                contA++;
-                            }
-                            int Tamaño = ultimoElemento;
-                            registro[fila, 0] = Tamaño;
-                        }
-                        break;
-                    case 2:
-                        if (pilaBast1.Count < 3)
-                        {
-                            int ultimoElemento = listaDesordenada.Last();
-                            listaDesordenada.RemoveAt(listaDesordenada.Count - 1);
-                            pilaBast1.Push(ultimoElemento);
-                            int fila;
-                            if (contV < 3)
-                            {
-                                fila = contV;
-                                contV++;
-                            }
-                            else if (contR < 3)
-                            {
-                                fila = contR + 3;
-                                contR++;
-                            }
-                            else
-                            {
-                                fila = contA + 6;
-                                contA++;
-                            }
-                            int Tamaño = ultimoElemento;
-                            registro[fila, 1] = Tamaño;
-                        }
-                        break;
-                    case 3:
-                        if (pilaBast2.Count < 3)
-                        {
-                            int ultimoElemento = listaDesordenada.Last();
-                            listaDesordenada.RemoveAt(listaDesordenada.Count - 1);
-                            pilaBast2.Push(ultimoElemento);
-                            int fila;
-                            if (contV < 3)
-                            {
-                                fila = contV;
-                                contV++;
-                            }
-                            else if (contR < 3)
-                            {
-                                fila = contR + 3;
-                                contR++;
-                            }
-                            else
-                            {
-                                fila = contA + 6;
-                                contA++;
-                            }
-                            int Tamaño = ultimoElemento;
-                            registro[fila, 2] = Tamaño;
-                        }
-                        break;
-                    case 4:
-                        if (pilaBast3.Count < 3)
-                        {
-                            int ultimoElemento = listaDesordenada.Last();
-                            listaDesordenada.RemoveAt(listaDesordenada.Count - 1);
-                            pilaBast3.Push(ultimoElemento);
-                            int fila;
-                            if (contV < 3)
-                            {
-                                fila = contV;
-                                contV++;
-                            }
-                            else if (contR < 3)
-                            {
-                                fila = contR + 3;
-                                contR++;
-                            }
-                            else
-                            {
-                                fila = contA + 6;
-                                contA++;
-                            }
-                            int y = ultimoElemento;
-                            int Tamaño = ultimoElemento;
-                            registro[fila, 3] = Tamaño;
-                        }
-                        break;
+                    // Asignar número a columna en la fila
+                    registro[filaInicio + i, columnasDisponibles[0]] = numeros[i];
                 }
             }
-            */
             Mensaje("Tabla: \n" + MensajeArray(registro));
-            /*
-            for (int i = 0; i < registro.GetLength(0); i++)
+            
+        }
+        static void Shuffle<T>(T[] array, Random random)
+        {
+            int n = array.Length;
+            for (int i = n - 1; i > 0; i--)
             {
-                for (int j = 0; j < registro.GetLength(1); j++)
-                {
-                    Stack<int> varPila;
-                    if(j == 0)
-                    {
-                        varPila = pilaBast0;
-                    }else if (j == 1)
-                    {
-                        varPila = pilaBast1;
-                    }
-                    else if (j == 2)
-                    {
-                        varPila = pilaBast2;
-                    }
-                    else
-                    {
-                        varPila = pilaBast3;
-                    }
-                    int numero = varPila.Pop();
-                }
+                int j = random.Next(0, i + 1);
+                T temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
             }
-            */
+        }
+        static void Shuffle(List<int> list, Random random)
+        {
+            int n = list.Count;
+            for (int i = n - 1; i > 0; i--)
+            {
+                int j = random.Next(0, i + 1);
+                int temp = list[i];
+                list[i] = list[j];
+                list[j] = temp;
+            }
         }
     }
 }
