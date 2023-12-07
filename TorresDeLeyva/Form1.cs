@@ -107,9 +107,24 @@ namespace TorresDeLeyva
 
             // Desordenar la lista utilizando el método Shuffle
             var listaDesordenada = lista.OrderBy(x => random.Next()).ToList();
-            Mensaje(string.Join(", ", listaDesordenada));
-            int contV = 0,contR = 0,contA = 0;
+            //Mensaje(string.Join(", ", listaDesordenada));
+            int[] numeros = { 1, 2, 3 };
 
+            // Iterar sobre las filas en grupos de 3
+            for (int fila = 0; fila < 9; fila += 3)
+            {
+                // Desordenar la lista de números específicos
+                Shuffle(numeros, random);
+
+                // Asignar un número específico a cada fila en el grupo actual
+                for (int i = 0; i < 3; i++)
+                {
+                    matriz[fila + i, random.Next(columnas)] = numeros[i];
+                }
+            }
+
+            int contV = 0,contR = 0,contA = 0;
+            /*
             while (listaDesordenada.Count > 0)
             {
                 int aleatorio = random.Next(1,5);
@@ -220,15 +235,33 @@ namespace TorresDeLeyva
                         break;
                 }
             }
+            */
             Mensaje("Tabla: \n" + MensajeArray(registro));
+            /*
             for (int i = 0; i < registro.GetLength(0); i++)
             {
-
                 for (int j = 0; j < registro.GetLength(1); j++)
                 {
-
+                    Stack<int> varPila;
+                    if(j == 0)
+                    {
+                        varPila = pilaBast0;
+                    }else if (j == 1)
+                    {
+                        varPila = pilaBast1;
+                    }
+                    else if (j == 2)
+                    {
+                        varPila = pilaBast2;
+                    }
+                    else
+                    {
+                        varPila = pilaBast3;
+                    }
+                    int numero = varPila.Pop();
                 }
             }
+            */
         }
     }
 }
