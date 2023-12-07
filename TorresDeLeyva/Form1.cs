@@ -107,15 +107,24 @@ namespace TorresDeLeyva
                 int[] numeros = { 1, 2, 3 };
                 Shuffle(numeros, random);
 
-                // Asignar un número específico a cada fila en el grupo actual
+                // Asignar un número específico a cada columna en el grupo actual
                 for (int i = 0; i < 3; i++)
                 {
-                    // Desordenar la lista de columnas
-                    List<int> columnasDisponibles = Enumerable.Range(0, 4).ToList();
-                    Shuffle(columnasDisponibles, random);
+                    int columna;
+                    do
+                    {
+                        // Desordenar la lista de columnas
+                        List<int> columnasDisponibles = Enumerable.Range(0, 4).ToList();
+                        Shuffle(columnasDisponibles, random);
+
+                        // Obtener la primera columna disponible
+                        columna = columnasDisponibles[0];
+
+                        // Verificar si la columna ya contiene el número
+                    } while (registro[filaInicio + i, columna] != 0);
 
                     // Asignar número a columna en la fila
-                    registro[filaInicio + i, columnasDisponibles[0]] = numeros[i];
+                    registro[filaInicio + i, columna] = numeros[i];
                 }
             }
             Mensaje("Tabla: \n" + MensajeArray(registro));
